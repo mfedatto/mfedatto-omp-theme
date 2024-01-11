@@ -57,7 +57,8 @@
                     "style": "plain",
                     "foreground": "#1a2a33",
                     "properties": {
-                        "threshold": 0
+                        "style": "amarillo",
+                        "threshold": 100
                     },
                     "template": "{{ .FormattedMs }}"
                 }
