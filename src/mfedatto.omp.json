@@ -1,0 +1,93 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "final_space": true,
+    "version": 2,
+    "blocks": [
+        {
+            "type": "prompt",
+            "alignment": "left",
+            "segments": [
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "foreground": "#ffe500",
+                    "template": "\u22b0 "
+                },
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "foreground": "#00e5ff",
+                    "template": "{{ if .Root }}\u25c6 {{ end }}"
+                },
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "foreground": "#ffe500",
+                    "template": "{{ .UserName }} @ {{ if .WSL }}WSL {{ end }}{{ .HostName }} \u22b1 "
+                },
+                {
+                    "type": "time",
+                    "style": "plain",
+                    "foreground": "#009999",
+                    "properties": {
+                        "time_format": "15:04:05"
+                    },
+                    "template": "\u22b0 {{ .CurrentDate | date .Format }} \u22b1 "
+                },
+                {
+                    "type": "sysinfo",
+                    "style": "plain",
+                    "foreground": "#6a6a6a",
+                    "properties": {
+                        "precision": 1
+                    },
+                    "template": "\u22b0 CPU {{ round .PhysicalPercentUsed .Precision }}% | "
+                },
+                {
+                    "type": "sysinfo",
+                    "style": "plain",
+                    "foreground": "#6a6a6a",
+                    "properties": {
+                        "precision": 1
+                    },
+                    "template": "RAM: {{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1000000000.0) }}/{{ (div .PhysicalTotalMemory 1068786176.0) }}GB \u22b1 "
+                },
+                {
+                    "type": "executiontime",
+                    "style": "plain",
+                    "foreground": "#1a2a33",
+                    "properties": {
+                        "threshold": 0
+                    },
+                    "template": "{{ .FormattedMs }}"
+                }
+            ]
+        },
+        {
+            "type": "prompt",
+            "alignment": "right",
+            "segments": [
+                {
+                    "type": "git",
+                    "style": "plain",
+                    "powerline_symbol": ":",
+                    "foreground": "#9c27b0",
+                    "template": " \u22b0 {{ .HEAD }} \u22b1"
+                }
+            ]
+        },
+        {
+            "type": "prompt",
+            "newline": true,
+            "alignment": "left",
+            "segments": [
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "template": "\u22b0 {{ .PWD }}\\ \u22b1",
+                    "foreground": "#20ffa6"
+                }
+            ]
+        }
+    ]
+}
