@@ -30,7 +30,7 @@
                     "style": "plain",
                     "foreground": "#009999",
                     "properties": {
-                        "time_format": "15:04:05"
+                        "time_format": "2006-01-02 15:04:05"
                     },
                     "template": "\u22b0 {{ .CurrentDate | date .Format }} \u22b1 "
                 },
@@ -73,7 +73,12 @@
                     "style": "plain",
                     "powerline_symbol": ":",
                     "foreground": "#9c27b0",
-                    "template": " \u22b0 {{ .HEAD }} \u22b1"
+                    "properties": {
+                        "branch_icon": "",
+                        "fetch_status": true,
+                        "fetch_upstream_icon": true
+                    },
+                    "template": " \u22b0 {{ .HEAD }}{{ if .Staging.Changed }} \u25cf {{ .Staging.String }}{{ end }}{{ if .Working.Changed }} \u25cf {{ .Working.String }}{{ end }} \u22b1"
                 }
             ]
         },
