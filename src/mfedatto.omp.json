@@ -42,7 +42,7 @@
                         "style": "amarillo",
                         "threshold": 100
                     },
-                    "template": "{{ .FormattedMs }}"
+                    "template": "{{ .FormattedMs }} "
                 }
             ]
         },
@@ -174,7 +174,7 @@
                 {
                     "type": "text",
                     "style": "plain",
-                    "foreground": "#ff6666",
+                    "foreground": "#00ffff",
                     "template": "{{ if .Root }}<f>su</f>{{ end }}"
                 },
                 {
