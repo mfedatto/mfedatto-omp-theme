@@ -109,7 +109,7 @@
                     "type": "kubectl",
                     "style": "plain",
                     "foreground": "#cc66ff",
-                    "template": " \u22b0 kubectl {{.Context}}{{if .Namespace}}<#808080>::</>{{.Namespace}}{{end}} \u22b1"
+                    "template": " \u22b0 {{.Context}}{{if .Namespace}}<#808080>::</>{{.Namespace}}{{end}} \u22b1"
                 },
                 {
                     "type": "az",
