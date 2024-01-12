@@ -110,13 +110,25 @@
                     "type": "text",
                     "style": "plain",
                     "foreground": "#20ffa6",
-                    "template": "{{ .UserName }}@"
+                    "template": "{{ .UserName }}"
+                },
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "foreground": "#808080",
+                    "template": "@"
                 },
                 {
                     "type": "text",
                     "style": "plain",
                     "foreground": "#00e5ff",
-                    "template": "{{ if .WSL }}(WSL){{ end }}"
+                    "template": "{{ if .WSL }}WSL{{ end }}"
+                },
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "foreground": "#808080",
+                    "template": "{{ if .WSL }}:{{ end }}"
                 },
                 {
                     "type": "text",
@@ -125,32 +137,50 @@
                     "template": "{{ .HostName }}"
                 },
                 {
+                    "type": "text",
+                    "style": "plain",
+                    "foreground": "#808080",
+                    "template": ":"
+                },
+                {
                     "type": "os",
                     "style": "plain",
-                    "foreground": "#20ffa6",
+                    "foreground": "#a6a6a6",
                     "properties": {
                         "macos": "mac",
                         "linux": "lnx",
                         "windows": "win"
                     },
-                    "template": "[{{ .Icon }}]"
+                    "template": "{{ .Icon }}"
+                },
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "foreground": "#808080",
+                    "template": ":"
                 },
                 {
                     "type": "text",
                     "style": "plain",
                     "foreground": "#20ffa6",
-                    "template": ":{{ .Folder }}"
+                    "template": "{{ .Folder }}"
+                },
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "foreground": "#808080",
+                    "template": "{{ if .Root }}:{{ end }}"
                 },
                 {
                     "type": "text",
                     "style": "plain",
                     "foreground": "#ff6666",
-                    "template": "{{ if .Root }}<f>[su]</f>{{ end }}"
+                    "template": "{{ if .Root }}<f>su</f>{{ end }}"
                 },
                 {
                     "type": "text",
                     "style": "plain",
-                    "foreground": "#20ffa6",
+                    "foreground": "#808080",
                     "template": "$"
                 }
             ]
