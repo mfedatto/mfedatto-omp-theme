@@ -2,6 +2,8 @@
     "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
     "final_space": true,
     "version": 2,
+    "console_title_template": "{{ lower .Shell }}{{ if .WSL }}::wsl{{ end }}::{{ lower .HostName }}{{ if .Root }}::su{{ end }}::{{ lower .UserName }}::{{ .Folder }}",
+    "terminal_background": "#0f1920",
     "blocks": [
         {
             "type": "prompt",
@@ -23,16 +25,7 @@
                     "properties": {
                         "precision": 1
                     },
-                    "template": "\u22b0 CPU {{ round .PhysicalPercentUsed .Precision }}% | "
-                },
-                {
-                    "type": "sysinfo",
-                    "style": "plain",
-                    "foreground": "#6a6a6a",
-                    "properties": {
-                        "precision": 1
-                    },
-                    "template": "RAM: {{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1000000000.0) }}/{{ (div .PhysicalTotalMemory 1068786176.0) }}GB \u22b1 "
+                    "template": "\u22b0 CPU {{ round .PhysicalPercentUsed .Precision }}% <#808080>:</> RAM {{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1000000000.0) }}/{{ (div .PhysicalTotalMemory 1068786176.0) }}GB \u22b1 "
                 },
                 {
                     "type": "executiontime",
@@ -89,6 +82,60 @@
                     "template": " \u22b0 .net {{ .Major }} \u22b1"
                 },
                 {
+                    "type": "java",
+                    "style": "plain",
+                    "foreground": "#cc66ff",
+                    "template": " \u22b0 java {{ .Major }} \u22b1"
+                },
+                {
+                    "type": "node",
+                    "style": "plain",
+                    "foreground": "#cc66ff",
+                    "template": " \u22b0 node {{ .Major }} \u22b1"
+                },
+                {
+                    "type": "npm",
+                    "style": "plain",
+                    "foreground": "#cc66ff",
+                    "template": " \u22b0 npm {{ .Major }} \u22b1"
+                },
+                {
+                    "type": "php",
+                    "style": "plain",
+                    "foreground": "#cc66ff",
+                    "template": " \u22b0 php {{ .Major }} \u22b1"
+                },
+                {
+                    "type": "kubectl",
+                    "style": "plain",
+                    "foreground": "#cc66ff",
+                    "template": " \u22b0 kubectl {{.Context}}{{if .Namespace}}<#808080>::</>{{.Namespace}}{{end}} \u22b1"
+                },
+                {
+                    "type": "az",
+                    "style": "plain",
+                    "foreground": "#cc66ff",
+                    "template": " \u22b0 az {{ .EnvironmentName }}{{ if not .IsDefault }} <f>not default</f>{{ end }} \u22b1"
+                },
+                {
+                    "type": "aws",
+                    "style": "plain",
+                    "foreground": "#cc66ff",
+                    "template": " \u22b0 aws {{.Profile}}{{if .Region}}<#808080>@</>{{.Region}}{{end}} \u22b1"
+                },
+                {
+                    "type": "gcp",
+                    "style": "plain",
+                    "foreground": "#cc66ff",
+                    "template": " \u22b0 gcp {{.Account}}{{if .Region}}<#808080>@</>{{.Region}}{{end}}<#808080>:</>{{.Project}} \u22b1"
+                },
+                {
+                    "type": "terraform",
+                    "style": "plain",
+                    "foreground": "#cc66ff",
+                    "template": " \u22b0 terraform {{ .WorkspaceName }}{{ if .Version }}<#808080>:</>{{ .Version }}{{ end }} \u22b1"
+                },
+                {
                     "type": "git",
                     "style": "plain",
                     "foreground": "#9c27b0",
@@ -110,37 +157,7 @@
                     "type": "text",
                     "style": "plain",
                     "foreground": "#20ffa6",
-                    "template": "{{ .UserName }}"
-                },
-                {
-                    "type": "text",
-                    "style": "plain",
-                    "foreground": "#808080",
-                    "template": "@"
-                },
-                {
-                    "type": "text",
-                    "style": "plain",
-                    "foreground": "#00e5ff",
-                    "template": "{{ if .WSL }}WSL{{ end }}"
-                },
-                {
-                    "type": "text",
-                    "style": "plain",
-                    "foreground": "#808080",
-                    "template": "{{ if .WSL }}:{{ end }}"
-                },
-                {
-                    "type": "text",
-                    "style": "plain",
-                    "foreground": "#20ffa6",
-                    "template": "{{ .HostName }}"
-                },
-                {
-                    "type": "text",
-                    "style": "plain",
-                    "foreground": "#808080",
-                    "template": ":"
+                    "template": "{{ .UserName }}<#808080>@</>{{ if .WSL }}WSL<#808080>:</>{{ end }}{{ .HostName }}<#808080>:</>"
                 },
                 {
                     "type": "os",
@@ -149,41 +166,50 @@
                     "properties": {
                         "macos": "mac",
                         "linux": "lnx",
-                        "windows": "win"
+                        "windows": "win",
+                        "alma": "alm",
+                        "alpine": "alp",
+                        "aosc": "aosc",
+                        "arch": "arch",
+                        "centos": "cent",
+                        "coreos": "core",
+                        "debian": "deb",
+                        "devuan": "dev",
+                        "raspbian": "rpi",
+                        "elementary": "elm",
+                        "fedora": "fed",
+                        "gentoo": "gen",
+                        "mageia": "mag",
+                        "manjaro": "man",
+                        "mint": "mint",
+                        "nixos": "nix",
+                        "opensuse": "suse",
+                        "redhat": "rhat",
+                        "rocky": "rck",
+                        "sabayon": "sby",
+                        "slackware": "slck",
+                        "ubuntu": "ubu",
+                        "android": "and"
                     },
-                    "template": "{{ .Icon }}"
-                },
-                {
-                    "type": "text",
-                    "style": "plain",
-                    "foreground": "#808080",
-                    "template": ":"
+                    "template": "{{ .Icon }}<#808080>:</>"
                 },
                 {
                     "type": "text",
                     "style": "plain",
                     "foreground": "#20ffa6",
-                    "template": "{{ .Folder }}"
-                },
-                {
-                    "type": "text",
-                    "style": "plain",
-                    "foreground": "#808080",
-                    "template": "{{ if .Root }}:{{ end }}"
-                },
-                {
-                    "type": "text",
-                    "style": "plain",
-                    "foreground": "#00ffff",
-                    "template": "{{ if .Root }}<f>su</f>{{ end }}"
-                },
-                {
-                    "type": "text",
-                    "style": "plain",
-                    "foreground": "#808080",
-                    "template": "$"
+                    "template": "{{ .Folder }}{{ if .Root }}<#808080>:</>{{ end }}{{ if .Root }}<f>su</f>{{ end }}<#808080>$</>"
                 }
             ]
         }
-    ]
+    ],
+    "transient_prompt": {
+        "background": "transparent",
+        "foreground": "#ffffff",
+        "template": "{{ .Shell }}> "
+    },
+    "secondary_prompt": {
+        "background": "transparent",
+        "foreground": "#bbd9eb",
+        "template": " \u21d2 "
+    }
 }
