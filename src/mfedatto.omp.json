@@ -16,7 +16,7 @@
                     "properties": {
                         "time_format": "2006-01-02 15:04:05"
                     },
-                    "template": "\u22b0 {{ .CurrentDate | date .Format }} \u22b1 "
+                    "template": "[{{ .CurrentDate | date .Format }}]"
                 },
                 {
                     "type": "sysinfo",
@@ -25,7 +25,7 @@
                     "properties": {
                         "precision": 1
                     },
-                    "template": "\u22b0 CPU {{ round .PhysicalPercentUsed .Precision }}% <#808080>:</> RAM {{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1000000000.0) }}/{{ (div .PhysicalTotalMemory 1068786176.0) }}GB \u22b1 "
+                    "template": "[CPU {{ round .PhysicalPercentUsed .Precision }}%<#808080>::</>RAM {{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1000000000.0) }}/{{ (div .PhysicalTotalMemory 1068786176.0) }}GB]"
                 },
                 {
                     "type": "executiontime",
@@ -35,20 +35,20 @@
                         "style": "amarillo",
                         "threshold": 100
                     },
-                    "template": "{{ .FormattedMs }} "
+                    "template": " {{ .FormattedMs }} "
                 }
             ]
         },
         {
             "type": "prompt",
             "alignment": "right",
-            "filler": "\u223b",
+            "filler": "~",
             "segments": [
                 {
                     "type": "text",
                     "style": "plain",
                     "foreground": "#1a2a33",
-                    "template": "\u223b"
+                    "template": "~"
                 }
             ]
         },
@@ -61,7 +61,7 @@
                     "type": "text",
                     "style": "plain",
                     "foreground": "#ffe500",
-                    "template": "\u22b0 {{ .PWD }} \u22b1 "
+                    "template": "[{{ .PWD }}]"
                 }
             ]
         },
@@ -73,67 +73,67 @@
                     "type": "angular",
                     "style": "plain",
                     "foreground": "#cc66ff",
-                    "template": " \u22b0 angular {{ .Major }} \u22b1"
+                    "template": "[angular {{ .Major }}}"
                 },
                 {
                     "type": "dotnet",
                     "style": "plain",
                     "foreground": "#cc66ff",
-                    "template": " \u22b0 .net {{ .Major }} \u22b1"
+                    "template": "[.net {{ .Major }}}"
                 },
                 {
                     "type": "java",
                     "style": "plain",
                     "foreground": "#cc66ff",
-                    "template": " \u22b0 java {{ .Major }} \u22b1"
+                    "template": "[java {{ .Major }}}"
                 },
                 {
                     "type": "node",
                     "style": "plain",
                     "foreground": "#cc66ff",
-                    "template": " \u22b0 node {{ .Major }} \u22b1"
+                    "template": "[node {{ .Major }}}"
                 },
                 {
                     "type": "npm",
                     "style": "plain",
                     "foreground": "#cc66ff",
-                    "template": " \u22b0 npm {{ .Major }} \u22b1"
+                    "template": "[npm {{ .Major }}}"
                 },
                 {
                     "type": "php",
                     "style": "plain",
                     "foreground": "#cc66ff",
-                    "template": " \u22b0 php {{ .Major }} \u22b1"
+                    "template": "[php {{ .Major }}}"
                 },
                 {
                     "type": "kubectl",
                     "style": "plain",
                     "foreground": "#cc66ff",
-                    "template": " \u22b0 {{.Context}}{{if .Namespace}}<#808080>::</>{{.Namespace}}{{end}} \u22b1"
+                    "template": "[{{ .Context }}{{ if .Namespace }}<#808080>::</>{{ .Namespace }}{{ end }}}"
                 },
                 {
                     "type": "az",
                     "style": "plain",
                     "foreground": "#cc66ff",
-                    "template": " \u22b0 az {{ .EnvironmentName }}{{ if not .IsDefault }} <f>not default</f>{{ end }} \u22b1"
+                    "template": "[az {{ .EnvironmentName }}{{ if not .IsDefault }} <f>not default</f>{{ end }}}"
                 },
                 {
                     "type": "aws",
                     "style": "plain",
                     "foreground": "#cc66ff",
-                    "template": " \u22b0 aws {{.Profile}}{{if .Region}}<#808080>@</>{{.Region}}{{end}} \u22b1"
+                    "template": "[aws {{ .Profile }}{{ if .Region }}<#808080>@</>{{ .Region }}{{ end }}}"
                 },
                 {
                     "type": "gcp",
                     "style": "plain",
                     "foreground": "#cc66ff",
-                    "template": " \u22b0 gcp {{.Account}}{{if .Region}}<#808080>@</>{{.Region}}{{end}}<#808080>:</>{{.Project}} \u22b1"
+                    "template": "[gcp {{ .Account }}{{ if .Region }}<#808080>@</>{{ .Region }}{{ end }}<#808080>:</>{{ .Project }}}"
                 },
                 {
                     "type": "terraform",
                     "style": "plain",
                     "foreground": "#cc66ff",
-                    "template": " \u22b0 terraform {{ .WorkspaceName }}{{ if .Version }}<#808080>:</>{{ .Version }}{{ end }} \u22b1"
+                    "template": "[terraform {{ .WorkspaceName }}{{ if .Version }}<#808080>:</>{{ .Version }}{{ end }}}"
                 },
                 {
                     "type": "git",
@@ -144,7 +144,7 @@
                         "fetch_status": true,
                         "fetch_upstream_icon": true
                     },
-                    "template": " \u22b0 {{ .HEAD }}{{ if or .Staging.Changed .Working.Changed }} {{ end }}{{ if .Staging.Changed }}{{ .Staging.String }}{{ end }}{{ if .Working.Changed }}{{ .Working.String }}{{ end }} \u22b1"
+                    "template": "[{{ .HEAD }}{{ if or .Staging.Changed .Working.Changed }} {{ end }}{{ if .Staging.Changed }}{{ .Staging.String }}{{ end }}{{ if .Working.Changed }}{{ .Working.String }}{{ end }}]"
                 }
             ]
         },
@@ -204,12 +204,12 @@
     ],
     "transient_prompt": {
         "background": "transparent",
-        "foreground": "#ffffff",
-        "template": "{{ .Shell }}> "
+        "foreground": "#20ffa6",
+        "template": "{{ .PWD }}<#808080>$</> "
     },
     "secondary_prompt": {
         "background": "transparent",
         "foreground": "#bbd9eb",
-        "template": " \u21d2 "
+        "template": "~> "
     }
 }
