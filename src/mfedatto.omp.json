@@ -157,7 +157,26 @@
                     "type": "text",
                     "style": "plain",
                     "foreground": "#20ffa6",
-                    "template": "{{ .UserName }}<#808080>@</>{{ if .WSL }}WSL<#808080>:</>{{ end }}{{ .HostName }}<#808080>:</>"
+                    "template": "{{ .UserName }}<#808080>@</>"
+                },
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "background": "#bbd9eb",
+                    "background_templates": [
+                        "{{ if and .Env.MF_CONTEXT .Env.MF_CONTEXT_BGCOLOR }}{{ .Env.MF_CONTEXT_BGCOLOR }}{{ end }}"
+                    ],
+                    "foreground": "#9c27b0",
+                    "foreground_templates": [
+                        "{{ if and .Env.MF_CONTEXT .Env.MF_CONTEXT_FGCOLOR }}{{ .Env.MF_CONTEXT_FGCOLOR }}{{ end }}"
+                    ],
+                    "template": "{{ if .Env.MF_CONTEXT }}<f><i>{{ .Env.MF_CONTEXT }}</i></f>{{ end }}"
+                },
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "foreground": "#20ffa6",
+                    "template": "{{ if .Env.MF_CONTEXT }}<#808080>:</>{{ end }}{{ if and .WSL }}{{ if not .Env.MF_CONTEXT_WSL }}WSL<#808080>:</>{{ end }}{{ end }}{{ .HostName }}<#808080>:</>"
                 },
                 {
                     "type": "os",
