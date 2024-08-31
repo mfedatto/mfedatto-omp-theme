@@ -73,67 +73,67 @@
                     "type": "angular",
                     "style": "plain",
                     "foreground": "#cc66ff",
-                    "template": "[angular {{ .Major }}}"
+                    "template": "[angular {{ .Major }}]"
                 },
                 {
                     "type": "dotnet",
                     "style": "plain",
                     "foreground": "#cc66ff",
-                    "template": "[.net {{ .Major }}}"
+                    "template": "[.net {{ .Major }}]"
                 },
                 {
                     "type": "java",
                     "style": "plain",
                     "foreground": "#cc66ff",
-                    "template": "[java {{ .Major }}}"
+                    "template": "[java {{ .Major }}]"
                 },
                 {
                     "type": "node",
                     "style": "plain",
                     "foreground": "#cc66ff",
-                    "template": "[node {{ .Major }}}"
+                    "template": "[node {{ .Major }}]"
                 },
                 {
                     "type": "npm",
                     "style": "plain",
                     "foreground": "#cc66ff",
-                    "template": "[npm {{ .Major }}}"
+                    "template": "[npm {{ .Major }}]"
                 },
                 {
                     "type": "php",
                     "style": "plain",
                     "foreground": "#cc66ff",
-                    "template": "[php {{ .Major }}}"
+                    "template": "[php {{ .Major }}]"
                 },
                 {
                     "type": "kubectl",
                     "style": "plain",
                     "foreground": "#cc66ff",
-                    "template": "[{{ .Context }}{{ if .Namespace }}<#808080>::</>{{ .Namespace }}{{ end }}}"
+                    "template": "[{{ .Context }}{{ if .Namespace }}<#808080>::</>{{ .Namespace }}{{ end }}]"
                 },
                 {
                     "type": "az",
                     "style": "plain",
                     "foreground": "#cc66ff",
-                    "template": "[az {{ .EnvironmentName }}{{ if not .IsDefault }} <f>not default</f>{{ end }}}"
+                    "template": "[az {{ .EnvironmentName }}{{ if not .IsDefault }} <f>not default</f>{{ end }}]"
                 },
                 {
                     "type": "aws",
                     "style": "plain",
                     "foreground": "#cc66ff",
-                    "template": "[aws {{ .Profile }}{{ if .Region }}<#808080>@</>{{ .Region }}{{ end }}}"
+                    "template": "[aws {{ .Profile }}{{ if .Region }}<#808080>@</>{{ .Region }}{{ end }}]"
                 },
                 {
                     "type": "gcp",
                     "style": "plain",
                     "foreground": "#cc66ff",
-                    "template": "[gcp {{ .Account }}{{ if .Region }}<#808080>@</>{{ .Region }}{{ end }}<#808080>:</>{{ .Project }}}"
+                    "template": "[gcp {{ .Account }}{{ if .Region }}<#808080>@</>{{ .Region }}{{ end }}<#808080>:</>{{ .Project }}]"
                 },
                 {
                     "type": "terraform",
                     "style": "plain",
                     "foreground": "#cc66ff",
-                    "template": "[terraform {{ .WorkspaceName }}{{ if .Version }}<#808080>:</>{{ .Version }}{{ end }}}"
+                    "template": "[terraform {{ .WorkspaceName }}{{ if .Version }}<#808080>:</>{{ .Version }}{{ end }}]"
                 },
                 {
                     "type": "git",
